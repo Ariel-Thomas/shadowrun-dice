@@ -15,12 +15,13 @@ class AttackCalculator
 
       probability_hash = {}
 
-      dv_hash.each do |dv, probability|
-        NetSuccessCalculator.net_attack_successes_hash(dv, soak).each do |net_successes, net_successes_probability|
-          damage = net_successes > 0 ? net_successes : 0
-          current_count = probability_hash[damage]
+      dv_hash.each do |total_damage, probability|
+        NetSuccessCalculator.generate_successes_hash(soak).each do |successes, successes_probability|
+          net_damage = total_damage - successes
+          net_damage = net_damage > 0 ? net_damage : 0
+          current_count = probability_hash[net_damage]
 
-          probability_hash[damage] = (probability * net_successes_probability) + (current_count ? current_count : 0)
+          probability_hash[net_damage] = (probability * successes_probability) + (current_count ? current_count : 0)
         end
       end
 

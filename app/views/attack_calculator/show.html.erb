@@ -21,7 +21,7 @@
 <% end %>
 
 <% if @dv_probability_hash %>
-  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Total Damage Dice", hash: @dv_probability_hash} %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Total Damage Value", hash: @dv_probability_hash} %>
 <% end %>
 
 <% if @damage_probability_hash %>
