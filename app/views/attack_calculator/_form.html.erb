@@ -1,33 +1,31 @@
-<div class='row'>
-  <%= form_tag attack_calculator_path do %>
-    <div class='row'>
-      <div class="form-group col-md-2">
-        <%= label_tag :attack_dice, 'Attack Dice' %>
-        <%= number_field_tag :attack_dice, params[:attack_dice], { min: 0, class: 'form-control' } %>
-      </div>
-      <div class="form-group col-md-2">
-        <%= label_tag :damage_value, 'Damage Value' %>
-        <%= number_field_tag :damage_value, params[:damage_value], { min: 0, class: 'form-control' } %>
-      </div>
-      <div class="form-group col-md-2">
-        <%= label_tag :accuracy, 'Accuracy' %>
-        <%= number_field_tag :accuracy, params[:accuracy], { min: 0, class: 'form-control' } %>
-        <div class="help-block">Ignored if 0</div>
-      </div>
-      <div class="form-group col-md-2">
-        <%= label_tag :defense_dice %>
-        <%= number_field_tag :defense_dice, params[:defense_dice], { min: 0, class: 'form-control' } %>
-      </div>
-      <div class="form-group col-md-2">
-        <%= label_tag :soak_dice, 'Soak Dice' %>
-        <%= number_field_tag :soak_dice, params[:soak_dice], { min: 0, class: 'form-control' } %>
-        <div class="help-block">After Armor Piercing</div>
-      </div>
+<%= form_tag attack_calculator_path do %>
+  <div class='row'>
+    <div class="form-group col-md-2">
+      <%= label_tag :attack_dice, 'Attack Dice' %>
+      <%= number_field_tag :attack_dice, params[:attack_dice], { min: 0, class: 'form-control' } %>
     </div>
-    <div class='row'>
-      <div class='col-md-12'>
-        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-      </div>
+    <div class="form-group col-md-2">
+      <%= label_tag :damage_value, 'Damage Value' %>
+      <%= number_field_tag :damage_value, params[:damage_value], { min: 0, class: 'form-control' } %>
     </div>
-  <% end %>
-</div>
+    <div class="form-group col-md-2">
+      <%= label_tag :accuracy, 'Accuracy' %>
+      <%= number_field_tag :accuracy, params[:accuracy], { min: 0, class: 'form-control' } %>
+      <div class="help-block">Ignored if 0</div>
+    </div>
+    <div class="form-group col-md-2">
+      <%= label_tag :defense_dice %>
+      <%= number_field_tag :defense_dice, params[:defense_dice], { min: 0, class: 'form-control' } %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= label_tag :soak_dice, 'Soak Dice' %>
+      <%= number_field_tag :soak_dice, params[:soak_dice], { min: 0, class: 'form-control' } %>
+      <div class="help-block">After Armor Piercing</div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-12'>
+      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </div>
+  </div>
+<% end %>

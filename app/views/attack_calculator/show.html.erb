@@ -1,15 +1,15 @@
-
-<div class='jumbotron'>
-<h1 class='row'><%= "Attack Damage Calculator" %></h1>
-
-<%= render 'form' %>
+<div class='row'>
+  <div class='jumbotron'>
+    <h1 class='row'><%= "Attack Damage Calculator" %></h1>
+    <div class='row'><%= render 'form' %></div>
+  </div>
 </div>
 
 <br>
 
 <% if @average_damage %>
   <div class='row'>
-    <div class='panel panel-default'>
+    <div class= 'panel panel-default'>
       <div class='panel-heading'>Average Damage</div>
       <div class='panel-body'><%= @average_damage %></div>
     </div>
