@@ -1,0 +1,29 @@
+
+<div class='jumbotron'>
+<h1 class='row'><%= "Attack Damage Calculator" %></h1>
+
+<%= render 'form' %>
+</div>
+
+<br>
+
+<% if @average_damage %>
+  <div class='row'>
+    <div class='panel panel-default'>
+      <div class='panel-heading'>Average Damage</div>
+      <div class='panel-body'><%= @average_damage %></div>
+    </div>
+  </div>
+<% end %>
+
+<% if @net_successes_hash %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Net Attack Successes", hash: @net_successes_hash} %>
+<% end %>
+
+<% if @dv_probability_hash %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Total Damage Dice", hash: @dv_probability_hash} %>
+<% end %>
+
+<% if @damage_probability_hash %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Net Damage Dealt", hash: @damage_probability_hash} %>
+<% end %>

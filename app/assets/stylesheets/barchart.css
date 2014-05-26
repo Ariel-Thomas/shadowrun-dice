@@ -1,0 +1,37 @@
+.bargraph {
+  list-style: none;
+  padding-top: 20px;
+}
+
+table.bargraph thead th {
+  padding: 1px 2px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+table.bargraph td {
+  padding: 1px 2px;
+  text-align: right;
+  white-space: nowrap;
+  border-bottom: 4px solid #2f2f2f
+}
+
+table.bargraph td.bar {
+  height: 10px;
+  background: #aaa;
+  width: 100%;
+}
+
+table.bargraph div {
+  height: 16px;
+  color: white;
+  text-align: left;
+  font-style: italic;
+  font-weight:bolder;
+  font-size: 14px;
+}
+
+table.bargraph div.gray {
+  background: #123E66;
+  width:100%;
+}

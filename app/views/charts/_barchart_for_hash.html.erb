@@ -1,0 +1,28 @@
+<div class='row'>
+  <div class='panel panel-default'>
+    <div class='panel-heading'><%= table_title %></div>
+    <div class='panel-body'>
+    <table class='bargraph'>
+      <thead>
+       <tr>
+        <th>#</th>
+        <th>%</th>
+       </tr>
+      </thead>
+      <tbody>
+        <% hash.each do |number, probability| %>
+          <tr>
+            <td style='width:7px'><%= number %></td>
+            <td style='width:7px'><%= probability %></td>
+
+            <td class="bar">
+              <div class="gray" style="width:<%= probability %>%"></li>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
