@@ -1,9 +1,9 @@
 class RegistrationCalculator
   class << self
-    def chance_of_success(compiling_dice, registration_dice, sprite_level, fade_resistance_dice, health_boxes)
+    def chance_of_success(hash)
       total = 0
 
-      compiling_and_registration_successes_after_damage_hash(compiling_dice, registration_dice, sprite_level, fade_resistance_dice, health_boxes).each do |successes, probability|
+      hash.each do |successes, probability|
         total = total + probability if successes > 0
       end
 
@@ -11,10 +11,10 @@ class RegistrationCalculator
     end
 
 
-    def average_favors(compiling_dice, registration_dice, sprite_level, fade_resistance_dice, health_boxes)
+    def average_favors(hash)
       total = 0
 
-      compiling_and_registration_successes_after_damage_hash(compiling_dice, registration_dice, sprite_level, fade_resistance_dice, health_boxes).each do |successes, probability|
+      hash do |successes, probability|
         total = total + successes * probability
       end
 

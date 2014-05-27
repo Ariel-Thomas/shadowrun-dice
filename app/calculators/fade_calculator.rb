@@ -16,6 +16,8 @@ class FadeCalculator
       net_compiling_fade_damage_hash(sprite_level, fade_resistance_dice).each do |compiling_damage, compiling_probability|
         net_registration_fade_damage_hash(sprite_level, fade_resistance_dice).each do |registration_damage, registration_probability|
 
+          puts registration_damage.to_s if registration_damage > 10
+
           net_dv = compiling_damage + registration_damage
           current_count = total_dv_hash[net_dv]
 

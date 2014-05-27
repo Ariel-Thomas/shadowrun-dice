@@ -32,16 +32,16 @@ class NetSuccessCalculator
     def net_attack_successes_hash attack_dice, defense_dice, limit=0
       net_successes_hash = {}
 
-      attack_successes_hash = generate_successes_hash attack_dice
+      attack_successes_hash = generate_successes_hash attack_dice, limit
       defense_successes_hash = generate_successes_hash defense_dice
 
       attack_successes_hash.each do |attack_successes, attack_count|
         defense_successes_hash.each do |defense_successes, defense_count|
-          net_successes = attack_successes - defense_successes
-
           if limit > 0
-            net_successes = limit < net_successes ? limit : net_successes
+            limited_attack_successes = limit < attack_successes ? limit : attack_successes
           end
+
+          net_successes = limited_attack_successes - defense_successes
 
           current_count = net_successes_hash[net_successes]
           net_successes_hash[net_successes] = current_count ? current_count + (attack_count * defense_count) : (attack_count * defense_count )
