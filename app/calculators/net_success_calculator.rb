@@ -32,7 +32,7 @@ class NetSuccessCalculator
     def net_attack_successes_hash attack_dice, defense_dice, limit=0
       net_successes_hash = {}
 
-      attack_successes_hash = generate_successes_hash attack_dice, limit
+      attack_successes_hash = generate_successes_hash attack_dice
       defense_successes_hash = generate_successes_hash defense_dice
 
       attack_successes_hash.each do |attack_successes, attack_count|
