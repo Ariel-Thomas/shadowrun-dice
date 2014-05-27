@@ -1,5 +1,34 @@
 class NetSuccessCalculator
   class << self
+    def net_attack_successes_with_defense_successes_hash attack_dice, defense_dice, limit=0
+      net_successes_hash = {}
+
+      attack_successes_hash = generate_successes_hash attack_dice
+      defense_successes_hash = generate_successes_hash defense_dice
+
+      attack_successes_hash.each do |attack_successes, attack_probability|
+        defense_successes_hash.each do |defense_successes, defense_probability|
+          net_successes = attack_successes - defense_successes
+
+          if limit > 0
+            net_successes = limit < net_successes ? limit : net_successes
+          end
+
+          current_defense_hash = net_successes_hash[net_successes]
+          unless current_defense_hash
+            current_defense_hash = {}
+            net_successes_hash[net_successes] = {}
+          end
+          current_count = current_defense_hash[defense_successes]
+
+          net_successes_hash[net_successes][defense_successes] =  (attack_probability * defense_probability ) + (current_count ? current_count : 0)
+        end
+      end
+
+      net_successes_hash
+    end
+
+
     def net_attack_successes_hash attack_dice, defense_dice, limit=0
       net_successes_hash = {}
 

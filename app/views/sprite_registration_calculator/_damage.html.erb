@@ -1,0 +1,40 @@
+
+<div class='row'>
+  <% if @average_fade_damage %>
+    <div class='col-md-6'>
+      <div class= 'panel panel-default'>
+        <div class='panel-heading'>Average Fade Damage</div>
+        <div class='panel-body'><%= @average_fade_damage %></div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @chance_of_death %>
+    <div class='col-md-6'>
+      <div class= 'panel panel-default'>
+        <div class='panel-heading'>Chance of Death</div>
+        <div class='panel-body'><%= "#{@chance_of_death}%" %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if @compiling_fade_dv_hash %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Compiling Damage Value", hash: @compiling_fade_dv_hash} %>
+<% end %>
+
+<% if @net_compiling_fade_damage_hash %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Net Compiling Damage", hash: @net_compiling_fade_damage_hash} %>
+<% end %>
+
+<% if @registration_fade_dv_hash %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Registration Damage Value", hash: @registration_fade_dv_hash} %>
+<% end %>
+
+<% if @net_registration_fade_damage_hash %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Net Registration Damage", hash: @net_registration_fade_damage_hash} %>
+<% end %>
+
+<% if @compiling_and_registration_fade_damage_hash %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Net Compiling + Registration Damage", hash: @compiling_and_registration_fade_damage_hash} %>
+<% end %>

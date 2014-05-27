@@ -1,0 +1,38 @@
+
+<div class='row'>
+  <% if @average_favors %>
+    <div class='col-md-6'>
+      <div class= 'panel panel-default'>
+        <div class='panel-heading'>Average Favors Owed</div>
+        <div class='panel-body'><%= @average_favors %></div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @chance_of_success %>
+    <div class='col-md-6'>
+      <div class= 'panel panel-default'>
+        <div class='panel-heading'>Chance of Success</div>
+        <div class='panel-body'><%= "#{@chance_of_success}%" %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if @compiling_net_successes %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Net Compiling Successes", hash: @compiling_net_successes} %>
+<% end %>
+
+
+<% if @compiling_net_successes_after_damage %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Compiling Successes After Damage", hash: @compiling_net_successes_after_damage} %>
+<% end %>
+
+
+<% if @compiling_and_registration_net_successes %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Net Compiling + Registration Successes", hash: @compiling_and_registration_net_successes} %>
+<% end %>
+
+<% if @compiling_and_registration_successes_after_damage %>
+  <%= render partial: 'charts/barchart_for_hash', locals: { table_title: "Compiling + Registration Successes After Damage", hash: @compiling_and_registration_successes_after_damage} %>
+<% end %>

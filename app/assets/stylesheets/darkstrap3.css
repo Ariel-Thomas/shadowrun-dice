@@ -205,7 +205,7 @@ textarea::-webkit-input-placeholder {
 }
 
 .navbar-default {
-  background-color: #333333;
+  background-color: #111;
   border: 0px;
   border-radius: 0px;
   border-bottom: 1px solid #030303;
@@ -743,6 +743,10 @@ select:focus:invalid:focus {
 
 .navbar-default .navbar-brand div{
   padding-left: 8px;
+}
+
+.navbar-default .navbar-left{
+  padding-top: 20px;
 }
 
 .navbar-inverse {

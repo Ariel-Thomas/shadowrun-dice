@@ -1,0 +1,30 @@
+<%= form_tag sprite_registration_calculator_path do %>
+  <div class='row'>
+    <div class="form-group col-md-2">
+      <%= label_tag :compiling_dice, 'Compiling Dice' %>
+      <%= number_field_tag :compiling_dice, params[:compiling_dice], { min: 0, class: 'form-control' } %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= label_tag :registration_dice, 'Registration Dice' %>
+      <%= number_field_tag :registration_dice, params[:registration_dice], { min: 0, class: 'form-control' } %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= label_tag :sprite_level, 'Sprite Level' %>
+      <%= number_field_tag :sprite_level, params[:sprite_level], { min: 0, class: 'form-control' } %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= label_tag :fade_resistance_dice, 'Fade Resistance Dice' %>
+      <%= number_field_tag :fade_resistance_dice, params[:fade_resistance_dice], { min: 0, class: 'form-control' } %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= label_tag :health_boxes, 'Health Boxes' %>
+      <%= number_field_tag :health_boxes, params[:health_boxes], { min: 0, class: 'form-control' } %>
+      <div class="help-block">Remaining Condition Monitor Track Boxes</div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-12'>
+      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </div>
+  </div>
+<% end %>
