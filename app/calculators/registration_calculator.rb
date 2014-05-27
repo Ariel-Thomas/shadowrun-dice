@@ -7,15 +7,15 @@ class RegistrationCalculator
         total = total + probability if successes > 0
       end
 
-      (total * 100).round(3)
+      total.round(3)
     end
 
 
     def average_favors(hash)
       total = 0
 
-      hash do |successes, probability|
-        total = total + successes * probability
+      hash.each do |successes, probability|
+        total = total + successes * (probability / 100.0)
       end
 
       total.round(3)

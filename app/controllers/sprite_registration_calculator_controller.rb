@@ -4,20 +4,22 @@ class SpriteRegistrationCalculatorController < ApplicationController
   end
 
   def update
-    # @compiling_fade_dv_hash = normalize_hash FadeCalculator.compiling_fade_dv_hash(*fade_dv_params)
-    # @net_compiling_fade_damage_hash = normalize_hash FadeCalculator.net_compiling_fade_damage_hash(*net_fade_damage_params)
-
-    # @registration_fade_dv_hash = normalize_hash FadeCalculator.registration_fade_dv_hash(*fade_dv_params)
-    # @net_registration_fade_damage_hash = normalize_hash FadeCalculator.net_registration_fade_damage_hash(*net_fade_damage_params)
+    if params[:show_calcs]
+      @compiling_fade_dv_hash = normalize_hash FadeCalculator.compiling_fade_dv_hash(*fade_dv_params)
+      @net_compiling_fade_damage_hash = normalize_hash FadeCalculator.net_compiling_fade_damage_hash(*net_fade_damage_params)
+      @registration_fade_dv_hash = normalize_hash FadeCalculator.registration_fade_dv_hash(*fade_dv_params)
+      @net_registration_fade_damage_hash = normalize_hash FadeCalculator.net_registration_fade_damage_hash(*net_fade_damage_params)
+    end
 
     @compiling_and_registration_fade_damage_hash = normalize_hash FadeCalculator.compiling_and_registration_fade_damage_hash(*net_fade_damage_params)
     @average_fade_damage = FadeCalculator.average_fade_damage(*net_fade_damage_params)
     @chance_of_death = DeathCalculator.chance_of_death(*chance_of_death_params)
 
-
-    # @compiling_net_successes = normalize_hash NetSuccessCalculator.net_attack_successes_hash(*compiling_params)
-    # @compiling_net_successes_after_damage = normalize_hash RegistrationCalculator.compiling_net_successes_after_damage_hash(*compiling_after_damage_params)
-    # @compiling_and_registration_net_successes = normalize_hash RegistrationCalculator.compiling_and_registration_net_successes_hash(*registration_params)
+    if params[:show_calcs]
+      @compiling_net_successes = normalize_hash NetSuccessCalculator.net_attack_successes_hash(*compiling_params)
+      @compiling_net_successes_after_damage = normalize_hash RegistrationCalculator.compiling_net_successes_after_damage_hash(*compiling_after_damage_params)
+      @compiling_and_registration_net_successes = normalize_hash RegistrationCalculator.compiling_and_registration_net_successes_hash(*registration_params)
+    end
 
     @compiling_and_registration_successes_after_damage = normalize_hash RegistrationCalculator.compiling_and_registration_successes_after_damage_hash(*registration_params)
     @average_favors = RegistrationCalculator.average_favors(@compiling_and_registration_successes_after_damage)

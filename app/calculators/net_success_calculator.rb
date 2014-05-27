@@ -8,11 +8,13 @@ class NetSuccessCalculator
 
       attack_successes_hash.each do |attack_successes, attack_probability|
         defense_successes_hash.each do |defense_successes, defense_probability|
-          net_successes = attack_successes - defense_successes
-
           if limit > 0
-            net_successes = limit < net_successes ? limit : net_successes
+            limited_attack_successes = limit < attack_successes ? limit : attack_successes
+          else
+            limited_attack_successes = limit
           end
+
+          net_successes = limited_attack_successes - defense_successes
 
           current_defense_hash = net_successes_hash[net_successes]
           unless current_defense_hash
@@ -39,6 +41,8 @@ class NetSuccessCalculator
         defense_successes_hash.each do |defense_successes, defense_count|
           if limit > 0
             limited_attack_successes = limit < attack_successes ? limit : attack_successes
+          else
+            limited_attack_successes = limit
           end
 
           net_successes = limited_attack_successes - defense_successes
